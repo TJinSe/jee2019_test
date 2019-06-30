@@ -46,6 +46,8 @@ dependencies {
 
     compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13'
     compile group: 'com.itextpdf', name: 'itext-asian', version: '5.2.0'
+
+    compileOnly 'org.projectlombok:lombok:1.18.2'
 }
 task dbStart(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
@@ -55,5 +57,9 @@ task dbStart(type: JavaExec) {
 task dbManager(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = 'org.hsqldb.util.DatabaseManagerSwing'
+}
+
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
 }
 mainClassName="demo.spring.xmljava.SpringXmlJavaDemo"

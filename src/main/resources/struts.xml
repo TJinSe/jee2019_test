@@ -6,4 +6,165 @@
 
 <struts>
 <constant name="struts.devMode" value="true"></constant>
+    <package name="course" extends="struts-default">
+        <action name="loginAction" class="course.LoginAction">
+            <result name="input">index.jsp</result>
+            <result name="adminsSuc">adminsPage.jsp</result>
+            <result name="adminsFail">adminsLoginFail.jsp</result>
+            <result name="roomSuc">roomPage.jsp</result>
+            <result name="roomFail">roomLoginFail.jsp</result>
+            <result name="stuSuc">stuPage.jsp</result>
+            <result name="stuFail">stuLoginFail.jsp</result>
+        </action>
+
+        <action name="register" class="course.RegisterServlet">
+            <result name="suc4">superAdminRegister.jsp</result>
+            <result name="suc5">roomAdminRegister.jsp</result>
+            <result name="suc6">stuRegister.jsp</result>
+        </action>
+
+        <action name="courseStuSetServlet" class="course.StuSetServlet">
+            <result name="success">show.jsp</result>
+            <result name="fail">stuRegisterFail.jsp</result>
+            <result name="input">stuRegister.jsp</result>
+        </action>
+
+        <action name="roomAdminSetServlet" class="course.RoomAdminServlet">
+            <result name="success">show.jsp</result>
+            <result name="fail">roomAdminRegisterFail.jsp</result>
+            <result name="input">roomAdminRegister.jsp</result>
+        </action>
+
+        <action name="superAdminServlet" class="course.SuperAdminServlet">
+            <result name="success">show.jsp</result>
+            <result name="fail">superAdminRegisterFail.jsp</result>
+            <result name="input">superAdminRegister.jsp</result>
+        </action>
+
+        <action name="stuPower" class="course.StuPowerAction">
+            <result name="stuSelect" type="redirectAction">stuSelect</result>
+            <result name="input">stuPage.jsp</result>
+            <result name="stuUpdateMe">stuUpdateMe.jsp</result>
+        </action>
+
+        <action name="stuSelect" class="course.StuSelectAction">
+            <result name="success" >show.jsp</result>
+            <result name="input">stuPage.jsp</result>
+            <result name="fail">stuSelectFail.jsp</result>
+        </action>
+
+        <action name="stuUpdateMe" class="course.StuUpdateMeAction">
+            <result name="success" >show.jsp</result>
+            <result name="input">stuUpdateMe.jsp</result>
+            <result name="fail">stuUpdateFail.jsp</result>
+        </action>
+
+        <action name="RAdminPower" class="course.RAdminPowerAction">
+            <result name="selectStu" type="redirectAction">RAdminSelectStu</result>
+            <result name="input">roomPage.jsp</result>
+            <result name="selectRA" type="redirectAction">RAdminSelectAdmin</result>
+            <result name="updateStu">updateStu.jsp</result>
+            <result name="insertStu">insertStu.jsp</result>
+        </action>
+
+        <action name="insertStu" class="course.InsertStuAction">
+            <result name="input">insertStu.jsp</result>
+            <result name="suc">show.jsp</result>
+            <result name="fail">insertStuFail.jsp</result>
+        </action>
+
+        <action name="updateStu" class="course.UpdateStuAction">
+            <result name="input">updateStu.jsp</result>
+            <result name="suc">show.jsp</result>
+            <result name="fail">UpdateStuFail.jsp</result>
+        </action>
+
+        <action name="RAdminSelectStu" class="course.RAdminSelectStuAction">
+            <result name="input">roomPage.jsp</result>
+            <result name="suc">show.jsp</result>
+            <result name="fail">RAdminSelectStuFail.jsp</result>
+        </action>
+
+        <action name="RAdminSelectAdmin" class="course.RAdminSelectAdminAction">
+            <result name="input">roomPage.jsp</result>
+            <result name="suc">show.jsp</result>
+            <result name="fail">RASelectRAdminsFail.jsp</result>
+        </action>
+
+        <action name="SPAdminPower" class="course.SPAdminPowerAction">
+            <result name="input">adminsPage.jsp</result>
+            <result name="SAdminInsert">SAdminInsert.jsp</result>
+            <result name="SAdminDelete">SAdminDelete.jsp</result>
+            <result name="SAdminSelect">SAdminSelect.jsp</result>
+            <result name="SAdminUpdate">SAdminUpdate.jsp</result>
+        </action>
+
+        <action name="SAdminsInsert" class="course.SAdminsInsertAction">
+            <result name="input">SAdminInsert.jsp</result>
+            <result name="insertStu">insertStu.jsp</result>
+            <result name="insertRAdmin">insertRAdmin.jsp</result>
+        </action>
+
+        <action name="insertRAdmin" class="course.InsertRAdminAction">
+            <result name="input">insertRAdmin.jsp</result>
+            <result name="suc">show.jsp</result>
+            <result name="fail">insertRAdminFail.jsp</result>
+        </action>
+
+        <action name="SAdminSelect" class="course.SAdminSelectPower">
+            <result name="input">SAdminSelect.jsp</result>
+            <result name="selectStu" type="redirectAction">SAdminSelectStu</result>
+            <result name="SASelectRAdmins" type="redirectAction">SASelectRAdmins</result>
+            <result name="selectSAdmins" type="redirectAction">SASelectSAdmins</result>
+        </action>
+
+        <action name="SASelectSAdmins" class="course.SASelectSAdminsAction">
+            <result name="input">SAdminSelect.jsp</result>
+            <result name="suc">show.jsp</result>
+            <result name="fail">SAdminSelectFail.jsp</result>
+        </action>
+
+        <action name="SASelectRAdmins" class="course.SASelectRAdminsAction">
+            <result name="input">SAdminSelect.jsp</result>
+            <result name="suc">show.jsp</result>
+            <result name="fail">SAdminSelectFail.jsp</result>
+        </action>
+
+        <action name="SAdminSelectStu" class="course.SAdminSelectStuAction">
+            <result name="input">SAdminSelect.jsp</result>
+            <result name="suc">show.jsp</result>
+            <result name="fail">SAdminSelectFail.jsp</result>
+        </action>
+
+        <action name="SAdminsDelete" class="course.SAdminDeletePower">
+            <result name="input">SAdminDelete.jsp</result>
+            <result name="deleteStu">SAdminDeleteStu.jsp</result>
+            <result name="deleteRoom">SAdminDeleteRoom.jsp</result>
+        </action>
+
+        <action name="SAdminsDeleteStu" class="course.SAdminsDeleteStuAction">
+            <result name="input">SAdminDeleteStu.jsp</result>
+            <result name="suc">show.jsp</result>
+            <result name="fail">SAdminDeleteStuFail.jsp</result>
+        </action>
+
+        <action name="SAdminsDeleteRoom" class="course.SAdminDeleteRoomAction">
+            <result name="input">SAdminDeleteRoom.jsp</result>
+            <result name="suc">show.jsp</result>
+            <result name="fail">SAdminDeleteRoomFail.jsp</result>
+        </action>
+
+        <action name="SAdminsUpdate" class="course.SAdminUpdatePower">
+            <result name="input">SAdminUpdate.jsp</result>
+            <result name="updateStu">updateStu.jsp</result>
+            <result name="updateRAdmin">SAdminUpdateRAdmin.jsp</result>
+        </action>
+
+        <action name="SAdminUpdateRAdmin" class="course.SAdminUpdateRAdminAction">
+            <result name="input">SAdminUpdateRAdmin.jsp</result>
+            <result name="suc">show.jsp</result>
+            <result name="fail">SAdminUpdateRAdminFail.jsp</result>
+        </action>
+    </package>
+
 </struts>
